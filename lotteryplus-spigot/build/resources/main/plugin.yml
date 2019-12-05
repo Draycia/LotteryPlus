@@ -1,7 +1,0 @@
-name: LotteryPlus
-version: @version@
-main: net.draygia.lotteryplus.LotteryPlusSpigot
-api-version: 1.13
-commands:
-  lottery:
-    permission: lotteryplus.lottery
