@@ -1,0 +1,4 @@
+dependencies {
+    compile 'com.google.guava:guava:21.0'
+    compile 'org.spongepowered:configurate-hocon:3.6'
+}

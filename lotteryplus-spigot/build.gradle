@@ -1,0 +1,36 @@
+repositories {
+    maven {
+        name = 'papermc-repo'
+        url = 'https://papermc.io/repo/repository/maven-public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        name = "vault"
+        url = "http://nexus.hc.to/content/repositories/pub_releases"
+    }
+}
+
+dependencies {
+    compile project(':lotteryplus-common')
+    compileOnly 'org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT'
+    compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
+    compile 'org.spongepowered:configurate-hocon:3.6'
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        expand 'version': project.version
+    }
+}
+
+shadowJar {
+    dependencies {
+        include(dependency(':lotteryplus-common'))
+        include(dependency(':configurate-hocon'))
+    }
+
+    relocate 'ninja.leaping', 'net.draycia.ninja.leaping'
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'lotteryplus'
+
+include 'lotteryplus-common', 'lotteryplus-spigot', 'lotteryplus-sponge'
