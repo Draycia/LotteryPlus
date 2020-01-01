@@ -74,7 +74,7 @@ public class LowPotLottery extends AbstractLottery {
         //Low Pot winner takes all
         PlayerTickets winningTicket = winningTickets.iterator().next();
         UUID uuid = winningTicket.getUUID();
-        String name = LotteryPlusCommon.getInstance().getPlayerUtils().getPlayerByUUID(uuid).getName();
+        String name = LotteryPlusCommon.getInstance().getPlayerUtils().getNameFromUUID(uuid);
 
         LotteryPlusCommon.getInstance().getLogger().info("Paying " + name);
         LotteryPlusCommon.getInstance().getEconomy().deposit(uuid, getStore().calculatePrizePool());

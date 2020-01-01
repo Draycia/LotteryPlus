@@ -134,7 +134,7 @@ public class SerializedConfigLoader<T> {
             // save the data to disk
             this.loader.save(saveNode);
             return true;
-        } catch (IOException | ObjectMappingException e) {
+        } catch (IOException | ObjectMappingException | ArrayIndexOutOfBoundsException e) {
             LotteryPlusCommon.getInstance().getLogger().severe("Failed to save configuration - " + path.toString());
             e.printStackTrace();
             return false;

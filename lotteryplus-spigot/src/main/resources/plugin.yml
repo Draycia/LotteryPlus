@@ -1,6 +1,6 @@
 name: LotteryPlus
 version: @version@
-main: net.draygia.lotteryplus.LotteryPlusSpigot
+main: net.draycia.lotteryplus.LotteryPlusSpigot
 api-version: 1.13
 commands:
   lottery:

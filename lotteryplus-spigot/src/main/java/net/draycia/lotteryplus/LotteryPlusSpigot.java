@@ -1,5 +1,6 @@
 package net.draycia.lotteryplus;
 
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -31,7 +32,7 @@ public final class LotteryPlusSpigot extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerJoin(PlayerJoinEvent event) {
-        event.getPlayer().sendMessage(common.getMessages().getPlayerJoinMessage());
+        event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', common.getMessages().getPlayerJoinMessage()));
     }
 
 }

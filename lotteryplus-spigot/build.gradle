@@ -15,8 +15,8 @@ repositories {
 
 dependencies {
     compile project(':lotteryplus-common')
-    compileOnly 'org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT'
-    compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
+    implementation 'org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT'
+    implementation 'net.milkbowl.vault:VaultAPI:1.7'
     compile 'org.spongepowered:configurate-hocon:3.6'
 }
 
@@ -29,7 +29,9 @@ processResources {
 shadowJar {
     dependencies {
         include(dependency(':lotteryplus-common'))
+        include(dependency(':configurate-core'))
         include(dependency(':configurate-hocon'))
+        include(dependency(':config'))
     }
 
     relocate 'ninja.leaping', 'net.draycia.ninja.leaping'

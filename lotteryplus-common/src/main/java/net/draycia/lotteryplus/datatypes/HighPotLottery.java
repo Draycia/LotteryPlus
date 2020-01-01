@@ -87,7 +87,7 @@ public class HighPotLottery extends AbstractLottery {
         for (int i = 0; i < winnerList.size(); i++) {
             PlayerTickets winningTicket = winnerList.get(i);
             UUID uuid = winningTicket.getUUID();
-            String name = LotteryPlusCommon.getInstance().getPlayerUtils().getPlayerByUUID(uuid).getName();
+            String name = LotteryPlusCommon.getInstance().getPlayerUtils().getNameFromUUID(uuid);
 
             LotteryPlusCommon.getInstance().getLogger().info("Paying " + name);
             LotteryPlusCommon.getInstance().getEconomy().deposit(uuid, getFirstPlacePrize(getNumberOfParticipants()));
