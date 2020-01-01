@@ -184,10 +184,10 @@ public class Messages {
             chatProcessor.sendMessage(uuid, "&aYour tickets: &3" + store.getPlayerTicketsAmount(uuid));
         }
 
-        chatProcessor.sendMessage(uuid, "&ayour Ticket Limit: &3" + store.getTicketCap());
-        chatProcessor.sendMessage(uuid, "&aTotal tickets: &3" + store.getTicketVolume());
+        chatProcessor.sendMessage(uuid, "&aTicket Limit: &3" + store.getTicketCap());
+        chatProcessor.sendMessage(uuid, "&aTotal Tickets: &3" + store.getTicketVolume());
         chatProcessor.sendMessage(uuid, "&aTotal Pot: &3" +  formatToUSD(store.calculatePrizePool()));
-        chatProcessor.sendMessage(uuid, "&aDraw in: &3" + LotteryPlusCommon.getInstance().getLotteryManager().getFormattedTimeLotteryEnds());
+        chatProcessor.sendMessage(uuid, "&aDraw In: &3" + LotteryPlusCommon.getInstance().getLotteryManager().getFormattedTimeLotteryEnds());
         chatProcessor.sendMessage(uuid, "&aLast Winner: &3" + getLastWinner());
     }
 
