@@ -55,11 +55,7 @@ public class SpongeEconomy implements IEconomy {
     public boolean hasAmount(UUID uuid, double amount) {
         Optional<UniqueAccount> account = economy.getOrCreateAccount(uuid);
 
-        if (!account.isPresent()) {
-            return false;
-        }
-
-        return account.get().getBalance(economy.getDefaultCurrency()).compareTo(BigDecimal.valueOf(amount)) >= 0;
+        return account.filter(uniqueAccount -> uniqueAccount.getBalance(economy.getDefaultCurrency()).compareTo(BigDecimal.valueOf(amount)) >= 0).isPresent();
     }
 
 }

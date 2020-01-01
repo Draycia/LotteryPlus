@@ -7,6 +7,7 @@ import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
 import org.spongepowered.api.service.user.UserStorageService;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class SpongePlayerUtils implements IPlayerUtils {
@@ -29,7 +30,8 @@ public class SpongePlayerUtils implements IPlayerUtils {
     public IPlayer getPlayerByName(String name) {
         Player player = Sponge.getServer().getPlayer(name).orElse(null);
 
-        return new SpongePlayer(player.getName(), player.getUniqueId(), player.isOnline());    }
+        return new SpongePlayer(player.getName(), player.getUniqueId(), player.isOnline());
+    }
 
     @Override
     public boolean playerIsOnline(UUID uuid) {
@@ -43,9 +45,9 @@ public class SpongePlayerUtils implements IPlayerUtils {
 
     @Override
     public boolean playerHasPermission(UUID uuid, String permission) {
-        Player player = Sponge.getServer().getPlayer(uuid).orElse(null);
+        Optional<Player> player = Sponge.getServer().getPlayer(uuid);
 
-        return player.hasPermission(permission);
+        return player.map(value -> value.hasPermission(permission)).orElse(false);
     }
 
     @Override

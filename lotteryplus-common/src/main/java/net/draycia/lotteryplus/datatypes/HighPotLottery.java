@@ -40,8 +40,8 @@ public class HighPotLottery extends AbstractLottery {
         HighPotLottery highPotLottery = new HighPotLottery();
 
         //The cast to Long here is because the HOCON library has an issue in comparing Longs, this is fixed in dev builds but Configurate hasn't yet updated.
-        highPotLottery.setLotteryBeginTime(Long.valueOf(persistentLotteryData.getSerializedLotteryStartTime()));
-        highPotLottery.setLotteryEndTime(Long.valueOf(persistentLotteryData.getSerializedLotteryEndTime()));
+        highPotLottery.setLotteryBeginTime(Long.parseLong(persistentLotteryData.getSerializedLotteryStartTime()));
+        highPotLottery.setLotteryEndTime(Long.parseLong(persistentLotteryData.getSerializedLotteryEndTime()));
         highPotLottery.setLotteryPreviousWinners(persistentLotteryData.getSerializedPreviousWinners());
         highPotLottery.getStore().copyTickets(persistentLotteryData.getSerializedLotteryTickets());
         highPotLottery.setLotteryPhase(persistentLotteryData.getSerializedLotteryPhase());

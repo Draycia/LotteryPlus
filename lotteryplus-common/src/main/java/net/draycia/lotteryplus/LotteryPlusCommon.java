@@ -5,7 +5,6 @@ import net.draycia.lotteryplus.interfaces.*;
 import net.draycia.lotteryplus.messaging.Messages;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 public class LotteryPlusCommon {
 

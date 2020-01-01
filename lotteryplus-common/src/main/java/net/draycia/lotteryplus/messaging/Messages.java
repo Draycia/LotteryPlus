@@ -5,7 +5,6 @@ import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.LotteryType;
 import net.draycia.lotteryplus.datatypes.store.Store;
 import net.draycia.lotteryplus.interfaces.IChatProcessor;
-import net.draycia.lotteryplus.interfaces.IPlayer;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -160,9 +159,8 @@ public class Messages {
     public String formatToUSD(double value) {
         Locale locale = new Locale("en", "US");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-        String formattedCurrency = numberFormat.format(value);
 
-        return formattedCurrency;
+        return numberFormat.format(value);
     }
 
     /**
@@ -186,8 +184,9 @@ public class Messages {
             chatProcessor.sendMessage(uuid, "&aYour tickets: &3" + store.getPlayerTicketsAmount(uuid));
         }
 
+        chatProcessor.sendMessage(uuid, "&ayour Ticket Limit: &3" + store.getTicketCap());
         chatProcessor.sendMessage(uuid, "&aTotal tickets: &3" + store.getTicketVolume());
-        chatProcessor.sendMessage(uuid, "&aStakes Level: &3" +  formatToUSD(store.calculatePrizePool()));
+        chatProcessor.sendMessage(uuid, "&aTotal Pot: &3" +  formatToUSD(store.calculatePrizePool()));
         chatProcessor.sendMessage(uuid, "&aDraw in: &3" + LotteryPlusCommon.getInstance().getLotteryManager().getFormattedTimeLotteryEnds());
         chatProcessor.sendMessage(uuid, "&aLast Winner: &3" + getLastWinner());
     }

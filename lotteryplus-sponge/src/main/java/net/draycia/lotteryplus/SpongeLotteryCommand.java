@@ -19,21 +19,20 @@ public class SpongeLotteryCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
-        String[] arguments;
+        String[] arguments = null;
 
         Optional<String> subCommand = args.getOne(Text.of("subcommand"));
         Optional<String> subArguments = args.getOne(Text.of("subargument"));
 
-        if (subArguments.isPresent()) {
-            arguments = new String[] {subCommand.get(), subArguments.get()};
-        } else {
-            arguments = new String[] {subCommand.get()};
+        if (subCommand.isPresent()) {
+            if (subArguments.isPresent()) {
+                arguments = new String[] {subCommand.get(), subArguments.get()};
+            } else {
+                arguments = new String[] {subCommand.get()};
+            }
         }
 
         new LotteryCommand().onCommand(((Player)src).getUniqueId(), arguments);
-
-        //String arguments = args.<String>getOne(Text.of("arguments")).get();
-
 
         return CommandResult.success();
     }

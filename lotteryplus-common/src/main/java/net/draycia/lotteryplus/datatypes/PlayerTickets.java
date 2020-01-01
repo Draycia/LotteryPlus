@@ -34,8 +34,7 @@ public class PlayerTickets {
      * @return new PlayerTickets instance with state representing the provided data
      */
     public static PlayerTickets fromData(@NonNull UUID uuid, Integer amount) {
-        PlayerTickets playerTickets = new PlayerTickets(uuid, amount);
-        return playerTickets;
+        return new PlayerTickets(uuid, amount);
     }
 
     /*

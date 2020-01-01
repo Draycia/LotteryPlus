@@ -166,6 +166,9 @@ public abstract class AbstractStore implements Store {
 
         playerTickets.addTickets(amount);
         LotteryPlusCommon.getInstance().getMessages().broadcastPurchase(uuid, amount);
+
+        String name = LotteryPlusCommon.getInstance().getPlayerUtils().getNameFromUUID(uuid);
+        LotteryPlusCommon.getInstance().getLogger().info(name + " has purchased " + amount + " tickets.");
     }
 
     /**
@@ -235,7 +238,6 @@ public abstract class AbstractStore implements Store {
      */
     @Override
     public double calculatePrizePool() {
-        double prizePool = 100 * getTicketVolume();
-        return prizePool;
+        return 100 * getTicketVolume();
     }
 }

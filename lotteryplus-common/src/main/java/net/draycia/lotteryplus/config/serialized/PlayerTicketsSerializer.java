@@ -49,7 +49,7 @@ public class PlayerTicketsSerializer implements TypeSerializer<PlayerTickets> {
      * @throws ObjectMappingException If the object cannot be serialized
      */
     @Override
-    public void serialize(@NonNull TypeToken<?> type, @Nullable PlayerTickets obj, @NonNull ConfigurationNode value) throws ObjectMappingException {
+    public void serialize(@NonNull TypeToken<?> type, @Nullable PlayerTickets obj, @NonNull ConfigurationNode value) {
         value.getNode(UNIQUE_ID).setValue(obj.getUUID().toString());
         value.getNode(TICKETS_PURCHASED).setValue(obj.getTicketPurchaseCount());
     }

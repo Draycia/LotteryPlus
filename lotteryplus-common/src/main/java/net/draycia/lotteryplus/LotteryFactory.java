@@ -21,7 +21,7 @@ public class LotteryFactory {
      * If the serialized data is zero initialized, it ignores it and makes a lottery with no previous data
      * If the serialized data is not zero initialized, it makes a copy of a Lottery from that serialized data
      *
-     * @return
+     * @return A new Lottery
      */
     public static Lottery createNewLottery() {
         /* IF A LOTTERY CURRENTLY IS LOADED */

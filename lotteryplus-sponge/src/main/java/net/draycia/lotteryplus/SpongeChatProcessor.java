@@ -20,7 +20,7 @@ public class SpongeChatProcessor implements IChatProcessor {
 
     @Override
     public void sendMessage(UUID uuid, String message) {
-        Sponge.getServer().getPlayer(uuid).get().sendMessage(color(message));
+        Sponge.getServer().getPlayer(uuid).ifPresent(player -> player.sendMessage(color(message)));
     }
 
 }
