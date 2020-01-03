@@ -140,18 +140,16 @@ public class LotteryManager {
 
         StringBuilder stringBuilder = new StringBuilder(64);
 
-        stringBuilder.append("Hours: ");
-        stringBuilder.append(String.format("%02d", hoursLeft));
-        stringBuilder.append(",");
+        stringBuilder.append(String.format("&3%02d", hoursLeft));
+        stringBuilder.append("&bH&7, ");
 
-        stringBuilder.append(" Minutes: ");
-        stringBuilder.append(String.format("%02d", minutesLeft));
-        stringBuilder.append(",");
+        stringBuilder.append(String.format("&3%02d", minutesLeft));
+        stringBuilder.append("&bM&7, ");
 
-        stringBuilder.append(" Seconds: ");
-        stringBuilder.append(String.format("%02d", secondsLeft));
+        stringBuilder.append(String.format("&3%02d", secondsLeft));
+        stringBuilder.append("&bS");
 
-        return (stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
     /*
