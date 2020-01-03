@@ -1,6 +1,7 @@
 package net.draycia.lotteryplus.datatypes;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
+import net.draycia.lotteryplus.LotteryUtil;
 import net.draycia.lotteryplus.config.serialized.PersistentLotteryData;
 import net.draycia.lotteryplus.datatypes.store.SimpleStore;
 
@@ -25,7 +26,9 @@ import java.util.UUID;
 public class HighPotLottery extends AbstractLottery {
 
     public HighPotLottery() {
-        super(LotteryType.HIGHPOT, new SimpleStore(1000, 100));
+        super(LotteryType.HIGHPOT,
+                new SimpleStore(1000, 100),
+                LotteryUtil.getTimeFromNowInMillis(24));
     }
 
     /**

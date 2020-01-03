@@ -20,10 +20,10 @@ public abstract class AbstractLottery implements Lottery {
     private LotteryPhase lotteryPhase;
     private Store store;
 
-    public AbstractLottery(LotteryType lotteryType, Store store) {
+    public AbstractLottery(LotteryType lotteryType, Store store, Long lotteryEndtime) {
         this.lotteryType = lotteryType;
         this.lotteryStartTime = System.currentTimeMillis();
-        this.lotteryEndtime = LotteryUtil.get24HoursFromNowInMillis();
+        this.lotteryEndtime = lotteryEndtime;
         this.store = store;
 
         lotteryPhase = LotteryPhase.RUNNING;
