@@ -91,13 +91,14 @@ public class HighPotLottery extends AbstractLottery {
             PlayerTickets winningTicket = winnerList.get(i);
             UUID uuid = winningTicket.getUUID();
             String name = LotteryPlusCommon.getInstance().getPlayerUtils().getNameFromUUID(uuid);
+            double winnings = getPrize(i, winnerList.size());
 
             LotteryPlusCommon.getInstance().getLogger().info("Paying " + name);
-            LotteryPlusCommon.getInstance().getEconomy().deposit(uuid, getFirstPlacePrize(getNumberOfParticipants()));
-            LotteryPlusCommon.getInstance().getMessages().congratulate(uuid, getFirstPlacePrize(getNumberOfParticipants()));
+            LotteryPlusCommon.getInstance().getEconomy().deposit(uuid, winnings);
+            LotteryPlusCommon.getInstance().getMessages().congratulate(uuid, winnings);
             LotteryPlusCommon.getInstance().getMessages().broadcastHighPotWinner(name, i);
 
-            winnerNames.add(name);
+            winnerNames.add(name + "&7, &3$" + Double.toString(winningTicket.getTicketPurchaseCount()));
         }
 
         //Save name
