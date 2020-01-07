@@ -8,6 +8,7 @@ import net.draycia.lotteryplus.interfaces.IChatProcessor;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -187,6 +188,7 @@ public class Messages {
         chatProcessor.sendMessage(uuid, "&aTicket Limit: &3" + store.getTicketCap());
         chatProcessor.sendMessage(uuid, "&aTotal Tickets: &3" + store.getTicketVolume());
         chatProcessor.sendMessage(uuid, "&aTotal Pot: &3" +  formatToUSD(store.calculatePrizePool()));
+        chatProcessor.sendMessage(uuid, "&aMax Winners: &3" +  store.getMaximumWinners());
         chatProcessor.sendMessage(uuid, "&aDraw In: &3" + LotteryPlusCommon.getInstance().getLotteryManager().getFormattedTimeLotteryEnds());
         chatProcessor.sendMessage(uuid, "&aLast Winner: &3" + getLastWinner());
     }
@@ -202,8 +204,16 @@ public class Messages {
         LotteryManager manager = LotteryPlusCommon.getInstance().getLotteryManager();
         ArrayList<String> winners = manager.getPreviousLotteryWinners();
 
+
         if (winners != null && !winners.isEmpty()) {
-            lastWinners = LotteryPlusCommon.getInstance().getLotteryManager().getPreviousLotteryWinners().get(0);
+            StringBuilder builder = new StringBuilder();
+
+            for (String winner : winners) {
+                builder.append(winner);
+                builder.append(" &8- &3");
+            }
+
+            return builder.toString();
         }
 
         return lastWinners;

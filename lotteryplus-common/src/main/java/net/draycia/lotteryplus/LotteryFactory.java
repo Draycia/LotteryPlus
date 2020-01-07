@@ -1,10 +1,10 @@
 package net.draycia.lotteryplus;
 
 import net.draycia.lotteryplus.config.serialized.PersistentLotteryData;
-import net.draycia.lotteryplus.datatypes.HighPotLottery;
+import net.draycia.lotteryplus.datatypes.lottery.HighPotLottery;
 import net.draycia.lotteryplus.datatypes.Lottery;
 import net.draycia.lotteryplus.datatypes.LotteryType;
-import net.draycia.lotteryplus.datatypes.LowPotLottery;
+import net.draycia.lotteryplus.datatypes.lottery.LowPotLottery;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,9 @@
-package net.draycia.lotteryplus.datatypes;
+package net.draycia.lotteryplus.datatypes.lottery;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.LotteryUtil;
 import net.draycia.lotteryplus.config.serialized.PersistentLotteryData;
+import net.draycia.lotteryplus.datatypes.*;
 import net.draycia.lotteryplus.datatypes.store.SimpleStore;
 
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ public class LowPotLottery extends AbstractLottery {
 
     public LowPotLottery() {
         super(LotteryType.LOWPOT,
-                new SimpleStore(100, 100),
-                LotteryUtil.getTimeFromNowInMillis(24));
+                new SimpleStore(100, 100, 1),
+                LotteryUtil.getTimeFromNowInMillis(24), 1);
     }
 
     /**
@@ -39,6 +40,7 @@ public class LowPotLottery extends AbstractLottery {
         lowPotLottery.setLotteryPreviousWinners(persistentLotteryData.getSerializedPreviousWinners());
         lowPotLottery.getStore().copyTickets(persistentLotteryData.getSerializedLotteryTickets());
         lowPotLottery.setLotteryPhase(persistentLotteryData.getSerializedLotteryPhase());
+        lowPotLottery.setMaximumWinners(1);
 
         return lowPotLottery;
     }

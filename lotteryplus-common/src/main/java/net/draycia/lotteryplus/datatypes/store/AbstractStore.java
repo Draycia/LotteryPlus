@@ -17,16 +17,23 @@ public abstract class AbstractStore implements Store {
     private int maximumPurchaseAmount;
     private int ticketPrice;
     private ArrayList<PlayerTickets> lotteryTickets;
+    private int maximumWinners;
 
     private IChatProcessor chatProcessor = LotteryPlusCommon.getInstance().getChatProcessor();
 
-    public AbstractStore(int maximumPurchaseAmount, int ticketPrice) {
+    public AbstractStore(int maximumPurchaseAmount, int ticketPrice, int maximumWinners) {
         this.ticketPrice = ticketPrice;
         this.maximumPurchaseAmount = maximumPurchaseAmount;
+        this.maximumWinners = maximumWinners;
 
         //Init collections/maps
         lotteryTickets = new ArrayList<>();
         playerTicketMap = new HashMap<>();
+    }
+
+    @Override
+    public int getMaximumWinners() {
+        return maximumWinners;
     }
 
     /**

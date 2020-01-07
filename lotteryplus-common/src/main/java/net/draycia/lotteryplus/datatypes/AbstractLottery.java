@@ -1,7 +1,6 @@
 package net.draycia.lotteryplus.datatypes;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
-import net.draycia.lotteryplus.LotteryUtil;
 import net.draycia.lotteryplus.datatypes.store.Store;
 
 import java.util.ArrayList;
@@ -15,18 +14,36 @@ public abstract class AbstractLottery implements Lottery {
     private LotteryType lotteryType;
     private long lotteryStartTime;
     private long lotteryEndtime;
+    private int maximumWinners;
 
     private ArrayList<String> previousWinners;
     private LotteryPhase lotteryPhase;
     private Store store;
 
-    public AbstractLottery(LotteryType lotteryType, Store store, Long lotteryEndtime) {
+    public AbstractLottery(LotteryType lotteryType, Store store, Long lotteryEndtime, int maximumWinners) {
         this.lotteryType = lotteryType;
         this.lotteryStartTime = System.currentTimeMillis();
         this.lotteryEndtime = lotteryEndtime;
         this.store = store;
+        this.maximumWinners = maximumWinners;
 
         lotteryPhase = LotteryPhase.RUNNING;
+    }
+
+    /**
+     * Get the maximum number of winners for this Lottery
+     *
+     * @return the maximum number of winners for this Lottery
+     */
+    public int getMaximumWinners() {
+        return maximumWinners;
+    }
+
+    /**
+     * Sets the maximum number of winners for this Lottery
+     */
+    public void setMaximumWinners(int maximumWinners) {
+        this.maximumWinners = maximumWinners;
     }
 
     /**

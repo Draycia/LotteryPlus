@@ -82,6 +82,13 @@ public interface Store {
     int getTicketCap();
 
     /**
+     * The maximum amount of winners for this Lottery
+     *
+     * @return the maximum amount of winners for this Lottery
+     */
+    int getMaximumWinners();
+
+    /**
      * Set the lottery ticket state to be a carbon copy of another
      * Typically this is used to copy data from serialization
      *
