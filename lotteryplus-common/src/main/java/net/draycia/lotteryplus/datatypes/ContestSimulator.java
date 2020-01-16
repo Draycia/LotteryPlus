@@ -55,8 +55,9 @@ public class ContestSimulator {
      */
     private @Nullable LinkedHashSet<PlayerTickets> determineWinners() {
         //TODO: This is a bit messy..
-        if (winners != null)
+        if (winners != null) {
             return winners;
+        }
 
         Random random = new Random(System.currentTimeMillis()); //Use current time as seed
         LinkedHashSet<PlayerTickets> winningTickets = new LinkedHashSet<>();

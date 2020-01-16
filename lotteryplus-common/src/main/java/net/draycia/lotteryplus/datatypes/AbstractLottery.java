@@ -2,6 +2,7 @@ package net.draycia.lotteryplus.datatypes;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.store.Store;
+import net.draycia.lotteryplus.interfaces.IEconomy;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -132,6 +133,14 @@ public abstract class AbstractLottery implements Lottery {
             } else {
                 LotteryPlusCommon.getInstance().getLogger().info("Paying winners...");
                 cashoutWinners(winnerTickets);
+            }
+        } else {
+            LotteryPlusCommon.getInstance().getMessages().printLotteryRefund();
+
+            IEconomy eco = LotteryPlusCommon.getInstance().getEconomy();
+
+            for (PlayerTickets tickets : getStore().getContestTickets()) {
+                eco.deposit(tickets.getUUID(), tickets.getTicketPurchaseCount() * getStore().getTicketPrice());
             }
         }
 

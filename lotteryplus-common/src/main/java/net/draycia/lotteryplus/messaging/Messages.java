@@ -3,6 +3,7 @@ package net.draycia.lotteryplus.messaging;
 import net.draycia.lotteryplus.LotteryManager;
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.LotteryType;
+import net.draycia.lotteryplus.datatypes.PlayerTickets;
 import net.draycia.lotteryplus.datatypes.store.Store;
 import net.draycia.lotteryplus.interfaces.IChatProcessor;
 
@@ -217,6 +218,10 @@ public class Messages {
         }
 
         return lastWinners;
+    }
+
+    public void printLotteryRefund() {
+        chatProcessor.broadcastMessage(PREFIX + "&cnot enough participants! Tickets have been refunded.");
     }
 
 }

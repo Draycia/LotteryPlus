@@ -16,7 +16,7 @@ import java.util.UUID;
  * High pot lottery follows these rules
  * Prize pool: The prize pool is equal to the total number of tickets * 100
  * Cap: 1000 ticket cap per player
- * Prizepool distribution:
+ * Prize pool distribution:
  * 3 Winners
  * 1st Place: 70%
  * 2nd Place: 20%
@@ -174,6 +174,6 @@ public class HighPotLottery extends AbstractLottery {
      */
     @Override
     public int getMinimumEntrees() {
-        return 1;
+        return 3;
     }
 }
