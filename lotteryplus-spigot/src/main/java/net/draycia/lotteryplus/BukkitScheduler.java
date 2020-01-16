@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IScheduler;
+import net.draycia.lotteryplus.abstraction.interfaces.IScheduler;
 import org.bukkit.Bukkit;
 
 public class BukkitScheduler implements IScheduler {

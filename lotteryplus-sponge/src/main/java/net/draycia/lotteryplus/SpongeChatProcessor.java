@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IChatProcessor;
+import net.draycia.lotteryplus.abstraction.interfaces.IChatProcessor;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;

@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IChatProcessor;
+import net.draycia.lotteryplus.abstraction.interfaces.IChatProcessor;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

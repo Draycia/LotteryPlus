@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.ILogger;
+import net.draycia.lotteryplus.abstraction.interfaces.ILogger;
 import org.slf4j.Logger;
 
 public class SpongeLogger implements ILogger {

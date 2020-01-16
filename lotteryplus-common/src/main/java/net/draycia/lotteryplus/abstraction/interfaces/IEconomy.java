@@ -1,4 +1,4 @@
-package net.draycia.lotteryplus.interfaces;
+package net.draycia.lotteryplus.abstraction.interfaces;
 
 import java.util.UUID;
 

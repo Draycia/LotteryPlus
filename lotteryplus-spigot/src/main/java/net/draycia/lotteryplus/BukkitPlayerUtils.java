@@ -1,7 +1,7 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IPlayer;
-import net.draycia.lotteryplus.interfaces.IPlayerUtils;
+import net.draycia.lotteryplus.abstraction.interfaces.IPlayer;
+import net.draycia.lotteryplus.abstraction.interfaces.IPlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.ILogger;
+import net.draycia.lotteryplus.abstraction.interfaces.ILogger;
 import org.bukkit.Bukkit;
 
 public class BukkitLogger implements ILogger {

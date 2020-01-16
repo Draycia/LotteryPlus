@@ -1,6 +1,8 @@
 package net.draycia.lotteryplus;
 
 import com.google.inject.Inject;
+import net.draycia.lotteryplus.abstraction.LotteryServiceManager;
+import net.draycia.lotteryplus.abstraction.interfaces.*;
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.args.GenericArguments;
@@ -34,13 +36,17 @@ public class LotteryPlusSponge {
 
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
-        this.common = new LotteryPlusCommon(
-                new SpongeEconomy(),
-                new SpongeScheduler(this),
-                new SpongeChatProcessor(),
-                new SpongePlayerUtils(),
-                new SpongeLogger(logger),
-                configDirectory);
+        this.common = new LotteryPlusCommon();
+
+        LotteryServiceManager manager = common.getServiceManager();
+
+        manager.register(IEconomy.class, new SpongeEconomy());
+        manager.register(IScheduler.class, new SpongeScheduler(this));
+        manager.register(IChatProcessor.class, new SpongeChatProcessor());
+        manager.register(IPlayerUtils.class, new SpongePlayerUtils());
+        manager.register(ILogger.class, new SpongeLogger(logger));
+
+        common.setup(configDirectory);
 
         HashMap<String, String> choices = new HashMap<>();
         choices.put("buy", "buy");

@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IPlayer;
+import net.draycia.lotteryplus.abstraction.interfaces.IPlayer;
 
 import java.util.UUID;
 

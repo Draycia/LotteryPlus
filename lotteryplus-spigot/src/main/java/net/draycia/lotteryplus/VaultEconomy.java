@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IEconomy;
+import net.draycia.lotteryplus.abstraction.interfaces.IEconomy;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;

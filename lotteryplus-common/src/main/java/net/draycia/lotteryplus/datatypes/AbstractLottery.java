@@ -2,7 +2,7 @@ package net.draycia.lotteryplus.datatypes;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.store.Store;
-import net.draycia.lotteryplus.interfaces.IEconomy;
+import net.draycia.lotteryplus.abstraction.interfaces.IEconomy;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IEconomy;
+import net.draycia.lotteryplus.abstraction.interfaces.IEconomy;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.event.cause.EventContext;

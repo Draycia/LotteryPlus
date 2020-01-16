@@ -3,13 +3,11 @@ package net.draycia.lotteryplus.messaging;
 import net.draycia.lotteryplus.LotteryManager;
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.LotteryType;
-import net.draycia.lotteryplus.datatypes.PlayerTickets;
 import net.draycia.lotteryplus.datatypes.store.Store;
-import net.draycia.lotteryplus.interfaces.IChatProcessor;
+import net.draycia.lotteryplus.abstraction.interfaces.IChatProcessor;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Locale;
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
 package net.draycia.lotteryplus;
 
-import net.draycia.lotteryplus.interfaces.IScheduler;
+import net.draycia.lotteryplus.abstraction.interfaces.IScheduler;
 import org.spongepowered.api.Sponge;
 
 public class SpongeScheduler implements IScheduler {

@@ -1,71 +1,69 @@
 package net.draycia.lotteryplus;
 
+import net.draycia.lotteryplus.abstraction.LotteryServiceManager;
+import net.draycia.lotteryplus.abstraction.interfaces.*;
 import net.draycia.lotteryplus.config.ConfigManager;
-import net.draycia.lotteryplus.interfaces.*;
 import net.draycia.lotteryplus.messaging.Messages;
 
 import java.io.File;
 
 public class LotteryPlusCommon {
 
-    private IEconomy economy;
-    private IScheduler scheduler;
-    private IChatProcessor chatProcessor;
-    private IPlayerUtils playerUtils;
-    private ILogger logger;
-
     private File dataPath;
+    private LotteryServiceManager serviceManager;
 
     private static LotteryPlusCommon instance;
 
-    public LotteryPlusCommon(IEconomy economy, IScheduler scheduler, IChatProcessor chatProcessor,
-                             IPlayerUtils playerUtils, ILogger logger, File dataPath) {
-
-        // TODO: Better way to pass in all of these values
-        this.economy = economy;
-        this.scheduler = scheduler;
-        this.chatProcessor = chatProcessor;
-        this.playerUtils = playerUtils;
-        this.logger = logger;
-        this.dataPath = dataPath;
-
+    public LotteryPlusCommon() {
+        // TODO: Don't singleton the class
         instance = this; //Plugin instance
 
+        serviceManager = new LotteryServiceManager();
+    }
+
+    public void setup(File dataPath) {
+        this.dataPath = dataPath;
         messages = new Messages(this);
         configManager = new ConfigManager(); //Load first
         lotteryManager = new LotteryManager(this); //Init manager
 
         //Start the automated lottery
-
-        //scheduler.scheduleSyncDelayedTask(() -> lotteryManager.startLottery(), 600L);
         lotteryManager.startLottery();
 
-        // TODO: Fix these
-        //Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
-        //this.getCommand("lottery").setExecutor(new LotteryCommand());
-
         //Finished loading
-        logger.info("LotteryPlus has loaded!");
+        ILogger logger = serviceManager.getRegistration(ILogger.class);
+
+        if (logger != null) {
+            logger.info("LotteryPlus has loaded!");
+        }
     }
 
     public void onShutdown() {
         lotteryManager.disable();
     }
 
+    public LotteryServiceManager getServiceManager() {
+        return serviceManager;
+    }
+
     public IEconomy getEconomy() {
-        return economy;
+        return serviceManager.getRegistration(IEconomy.class);
     }
 
     public IScheduler getScheduler() {
-        return scheduler;
+        return serviceManager.getRegistration(IScheduler.class);
     }
 
     public IChatProcessor getChatProcessor() {
-        return chatProcessor;
+        return serviceManager.getRegistration(IChatProcessor.class);
     }
 
     public IPlayerUtils getPlayerUtils() {
-        return playerUtils;
+        return serviceManager.getRegistration(IPlayerUtils.class);
+    }
+
+    public ILogger getLogger() {
+        return serviceManager.getRegistration(ILogger.class);
     }
 
     /* LOTTERY MANAGER */
@@ -92,10 +90,6 @@ public class LotteryPlusCommon {
 
     public Messages getMessages() {
         return messages;
-    }
-
-    public ILogger getLogger() {
-        return logger;
     }
 
     public File getDataPath() {

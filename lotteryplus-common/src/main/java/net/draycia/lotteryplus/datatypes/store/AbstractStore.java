@@ -2,7 +2,7 @@ package net.draycia.lotteryplus.datatypes.store;
 
 import net.draycia.lotteryplus.LotteryPlusCommon;
 import net.draycia.lotteryplus.datatypes.PlayerTickets;
-import net.draycia.lotteryplus.interfaces.IChatProcessor;
+import net.draycia.lotteryplus.abstraction.interfaces.IChatProcessor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
